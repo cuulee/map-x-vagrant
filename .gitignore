@@ -1,0 +1,8 @@
+.vagrant/
+vagrant.log
+config/credentials/credentials.sh
+data/postgres/
+data/passwords/
+data/receipts/
+data/userdata/
+rsyncToUni.sh
