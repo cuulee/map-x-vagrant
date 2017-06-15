@@ -32,8 +32,10 @@ nMapxWorkers=10
 #
 source $dirScripts"/prepare.sh"
 source $dirScripts"/helper.sh"
-source $dirConfig"/credentials/credentials.sh"
 
+if [[ ! -e $dirConfig"/credentials/credentials.sh" ]]; then echo "Please fill /credentials/credentials.sh file"; fi;
+
+source $dirConfig"/credentials/credentials.sh"
 
 
 #

@@ -42,8 +42,10 @@ user="vagrant",
 port=2222
 )' >> settings/settings-local.R
 
+if [[ ! -z $vtport ]]; then vtport=":"$vtport; fi;
+
 echo 'config[["vt"]] <- list(
-port=""
+port="'$vtport'"
 )' >> settings/settings-local.R
 
 #
