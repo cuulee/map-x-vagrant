@@ -8,6 +8,7 @@ apt-get -qy update
 
 # install stuff
 apt-get -qy install \
+  imagemagick \
   postgresql-9.5 \
   postgresql-client-9.5 \
   postgresql-9.5-postgis-2.2 \
