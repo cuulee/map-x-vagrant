@@ -42,6 +42,20 @@ user="vagrant",
 port=2222
 )' >> settings/settings-local.R
 
+
+#
+# file / resource path 
+#
+echo 'config[["resources"]]  =  list(
+"dict"  = file.path("web","data","dictionaries"),
+"countries"  = file.path("web","data","countries"),
+"sprites" = file.path("web","data","styles","sprites"),
+"styles" = file.path("web","data","styles"),
+"mx" = file.path("web","libraries"),
+"userdata" = file.path("/srv/shiny-server/userdata")
+)'  >> settings/settings-local.R
+
+
 if [[ ! -z $vtport ]]; then vtport=":"$vtport; fi;
 
 echo 'config[["vt"]] <- list(
