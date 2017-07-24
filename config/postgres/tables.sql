@@ -8,7 +8,8 @@ mx_users : table of user
 DROP TABLE IF EXISTS mx_users ;
 
 create table mx_users (
-  id serial,
+  pid serial PRIMARY KEY,
+  id serial unique,
   username citext unique,
   email citext unique,
   key text,
@@ -17,36 +18,35 @@ create table mx_users (
   date_validated timestamp,
   date_hidden timestamp,
   date_last_visit timestamp,
-  data jsonb,
-  CONSTRAINT mx_users_pkey PRIMARY KEY (id)
+  data jsonb
 );
 
 ALTER TABLE mx_users OWNER TO mapxw;
 
 create table if not exists mx_views (
-  id character varying(20),
+  pid serial PRIMARY KEY,
+  id character varying(20) not null,
   country character varying(3),
   editor integer,
   target jsonb,
   date_modified timestamp with time zone,
   data jsonb,
-  type character varying(10),
-  CONSTRAINT mx_views_pkey PRIMARY KEY (id,date_modified)
+  type character varying(10)
 );
+
 
 ALTER TABLE mx_views OWNER TO mapxw;
 
 create table if not exists mx_sources (
-  id character varying(31),
+  pid serial PRIMARY KEY,
+  id character varying(31) unique not null,
   country character varying(3),
   editor integer,
   target jsonb,
   date_modified timestamp with time zone,
   data jsonb,
-  type character varying(10),
-  CONSTRAINT mx_sources_pkey PRIMARY KEY (id)
+  type character varying(10)
 );
 
 ALTER TABLE mx_sources OWNER TO mapxw;
-
 
